@@ -1,0 +1,24 @@
+const mongoose = require('mongoose');
+//table user lil database
+const ContactSchema = new mongoose.Schema({
+    Coname:{
+        type:String,
+        required:true,
+
+    },
+    email:{
+        type:String,
+        required:true,
+    },
+    sujet:{
+        type:String,
+        required:true,
+    },
+    msg:{
+        type:String,
+        required:true,
+    }
+});
+//bech ynajem ya9ra l user
+//exportation du modele pour les controlleurs
+module.exports=mongoose.model("Contact",ContactSchema);
