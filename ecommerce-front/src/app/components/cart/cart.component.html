@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<section>
+  
+ <br>
+    <div class="spacer">
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-lg-9">
+            <div class="row"> 
+              <h2>Votre Panier</h2>
+              <table class="table shop-table" *ngIf="carts">
+                <tr>
+                  <th class="b-6">Image</th>
+                  <th class="b-6">Name</th>
+                  <th class="b-0">Price</th>
+                  <th class="b-0">Quantity</th>
+                  <th class="b-0 text-right">Total Price</th>
+                </tr>
+                <tr *ngFor="let item of carts.items">
+                  <td><img [src]="'http://localhost:3000/' + item.productId.img" style="height: 100px;"></td>
+                  <td>{{ item.productId.Pname }}</td>
+                  <td>{{ item.productId.Price }}</td>
+                  <td>
+                    <button class="btn btn-primary bg-primary" type="button" (click)="_increamentQTY(item.productId._id,1)">+</button>
+                    {{ item.quantity }}
+                    <button type="button" class="btn btn-primary bg-primary">-</button>
+                  </td>
+                  <td class="text-right">
+                    <h5 class="font-medium m-b-30">{{ item.total }}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="text-align:right">Subtotal :{{ carts.subTotal }}</td>
+                  <td colspan="4" style="text-align:right">
+                    <button type="reset" class="btn btn-danger bg-danger" (click)="_emptyCart()">Vider Panier</button>
+                    <button type="submit" class="btn btn-success bg-success" >Valider Panier</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

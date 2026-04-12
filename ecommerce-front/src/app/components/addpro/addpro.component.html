@@ -1,0 +1,141 @@
+<app-navbaradmin></app-navbaradmin>
+
+<div class="container-fluid" >
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="background: linear-gradient(-20deg,#eebe7b 50%,#041C32 50%);">
+      <div class="position-sticky pt-9">
+        <ul class="nav flex-column" >
+          <br>
+          <a href="admin"><i class="fas fa-home text-white fw-bold">  Dashboard</i></a>
+          <hr class="text-black">
+          <i class="fas fa-stream text-white fw-bold">  Categories</i>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="addcat">
+              <span data-feather="file"></span>
+              Ajouter une catégorie
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-white" href="listcat">
+              <span data-feather="main"></span>
+              Liste des Categories
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="upcat/:id">
+              <span data-feather="file"></span>
+              Modifier une catégorie
+            </a>
+          </li>
+          <hr class="text-black">
+          <i class="fas fa-shopping-cart text-white fw-bold">  Produits</i>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="addpro">
+              <span data-feather="file"></span>
+              Ajouter un produit
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-white" href="listpro">
+              <span data-feather="main"></span>
+              Liste des produits
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black" href="update/:id">
+              <span data-feather="file"></span>
+              Modifier un produit
+            </a>
+          </li>
+          <hr class="text-black">
+          <i class="fas fa-user text-black fw-bold">  Clients</i>
+          
+          <li class="nav-item">
+            <a class="nav-link text-black" href="listuser">
+              <span data-feather="users"></span>
+              Liste des clients
+            </a>
+          </li>
+          <hr class="text-black">
+          <i class="fas fa-comment text-black fw-bold"> Réclamations</i>
+          
+          <li class="nav-item">
+            <a class="nav-link text-black" href="listcon">
+              <span data-feather="shopping-cart"></span>
+              Liste des messages
+            </a>
+          </li>
+          <hr class="text-black">
+          <li class="nav-item">
+            <a class="nav-link text-black fas fa-sign-out-alt text-black fw-bold" href="#" (click)="logOut()">
+              <span data-feather="shopping-cart"></span>
+              LogOut
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Ajouter des produits</h1>
+        
+      </div>
+      <br>
+      <div class="card mt-2">
+        <div class="card-header" style="background-color: #E89F71;"><h2 class="text-center">Ajouter un produit</h2></div>
+        <div class="card-body" style="background-color: #F5F4F4;">
+          <div class="row text-center">       
+            <div class="col-6">
+              <div class="form-group mb-3">
+                <label for="name">Name: <span class="important">*</span></label>
+                <input type="text" name="name" [(ngModel)]="addproForm.Pname" class="form-control" />
+              </div>
+            </div>
+            
+            <div class="col-6">
+              <div class="form-group mb-3">
+                <label for="name">Description: <span class="important">*</span></label>
+                <input type="text" name="description" [(ngModel)]="addproForm.Desc" class="form-control" />
+              </div>
+            </div>
+      
+            <div class="col-6">
+              <div class="form-group mb-3">
+                <label for="name">Category: <span class="important">*</span></label>
+                <select id="category"  name="category" [(ngModel)]="addproForm.category" ngDefaultControl class="form-control">
+                    <option value="none" selected="" disabled="">Category</option>
+                    <option [ngValue]="category._id"
+                            *ngFor=" let category of categories ">{{category.Cname}}</option>
+                </select>
+              </div>
+            </div>
+      
+            <div class="col-6">
+              <div class="form-group mb-3">
+                <label for="name">Price: <span class="important">*</span></label>
+                <input type="text" name="description" [(ngModel)]="addproForm.Price" class="form-control" />
+              </div>
+            </div>
+                  
+                    
+            <div class="col-12 ">
+              <div class="form-group mb-3">
+                <label for="image">URL Image:</label>
+                <input type="file" name="image" [(ngModel)]="addproForm.img" 
+                (change)="loadImage($event)" class="form-control" />
+              </div>
+            </div>
+          
+            <div class="col-12">
+              <div class="form-group d-grid gap-2 mt-4">
+                <button (click)="addProduct()" class="btn btn-lg btn-block" style="background-color: #E89F71;" href="/listpro">SUBMIT</button>
+              </div>
+            </div>    
+            
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

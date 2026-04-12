@@ -1,0 +1,57 @@
+<body>
+    <app-navbar></app-navbar><br><br>
+    <div class="wrapper bg-white">
+      <div class="h2 text-center">Bahria Lumiére</div>
+      <div class="h4 text-muted text-center pt-2">Create your Account</div>
+      <form class="pt-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group py-2">
+            <div class="input-field"> <span class="far fa-user p-2"></span> 
+              <input type="text" placeholder="First Name" class="form-control" formControlName="fname" required>
+            </div> 
+            <div *ngIf="submitted && f.fname.errors" class="text-danger">
+                <div *ngIf="f.fname.errors.required">First Name is required</div>
+                <div *ngIf="f.fname.errors.pattern">First Name not valid.</div>
+              </div>
+        </div>
+        <div class="form-group py-2">
+            <div class="input-field"> <span class="far fa-user p-2"></span> 
+              <input type="text" placeholder="Last Name" class="form-control" formControlName="lname" required>
+            </div> 
+            <div *ngIf="submitted && f.lname.errors" class="text-danger">
+                <div *ngIf="f.lname.errors.required">Last Name is required</div>
+                <div *ngIf="f.lname.errors.pattern">Last Name not valid.</div>
+              </div>
+        </div>
+          <div class="form-group py-2">
+              <div class="input-field"> <span class="far fa-user p-2"></span> 
+                <input type="text" placeholder="Email Address" class="form-control" formControlName="email" required>
+            </div> 
+            <div *ngIf="submitted && f.email.errors" class="text-danger">
+                <div *ngIf="f.email.errors.required">email is required</div>
+                <div *ngIf="f.email.errors.pattern">email name not valid.</div>
+              </div> 
+          </div>
+          <div class="form-group py-1 pb-2">
+              <div class="input-field"> <span class="fas fa-lock p-2"></span> 
+                <input type="password" placeholder="Enter your Password" 
+                 class="form-control" formControlName="password" required> 
+              </div>
+              
+              <div *ngIf="submitted && f.password.errors" class="text-danger">
+                <div *ngIf="f.password.errors.required">password is required</div>
+                <div *ngIf="f.password.errors.pattern">password name not valid.</div>
+              </div>
+          </div>
+          <div class="form-group text-center py-1 pb-2">
+            <button type="submit" class="btn w-50 text-black" style="background-color: #E89F71;">Register</button>
+          </div>
+          <div class="text-center register-link">
+            Already have an account?
+            <a routerLink="/login">Login Now</a>
+          </div>
+      </form>
+   </div>
+
+  </body>
+  
+  

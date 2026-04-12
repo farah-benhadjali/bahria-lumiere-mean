@@ -1,0 +1,35 @@
+<body>
+    <app-navbar></app-navbar><br><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>All Products of {{ Cname }}</h1><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let product of produits">
+          <div class="card" >
+            <img [src]="'http://localhost:3000/'+product.img" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+            <div class="card-body">
+              <h5 class="card-title">{{ product.Pname }}</h5>
+              <h6>Description :</h6>
+              <p class="card-text">
+                {{ product.Desc }} 
+              </p>
+              <h6>prix en dinar:</h6> 
+              <p class="card-text">
+                {{ product.Price }} 
+              </p>
+              
+              <div class="buttons d-flex flex-row">
+                <div class="text-center my-4"> <a (click)="_addItemToCart(product._id, 1)" class="btn" style="background-color: #E89F71;">Add to Cart</a> </div>
+            </div>
+            </div>
+          </div>
+        </div>
+     </div>
+    <app-footer></app-footer>
+</body>
