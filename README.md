@@ -262,18 +262,6 @@ module.exports = {
 
 ---
 
-## 🗄️ Modèle de données
-
-```
-users       → nom, email, password (bcrypt), role (admin|user)
-produits    → nom, description, prix, image, stock, categorieId (ref)
-categories  → nom, image
-carts       → userId (ref), items[{ produitId, quantité, prix }]
-contacts    → nom, email, message, date
-```
-
----
-
 ## 🔐 Rôles & Accès
 
 | Rôle | Accès |
@@ -336,6 +324,6 @@ Ce projet est sous licence **MIT** — voir le fichier [LICENSE](LICENSE).
 
 Développé avec ✨ par [Farah Benhadjali](https://github.com/farah-benhadjali)
 
-*Plateforme E-Commerce · MEAN Stack · Bahria Lumière*
+*Plateforme E-Commerce · MEAN Stack · Bahria Lumière 2021*
 
 </div>
