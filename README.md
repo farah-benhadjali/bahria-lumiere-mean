@@ -222,9 +222,6 @@ cd bahria-lumiere-mean
 # Installer les dépendances
 npm install
 
-# Configurer l'environnement
-# → Modifier config.js avec tes valeurs
-
 # Lancer le serveur
 node index.js
 # ou
@@ -246,20 +243,6 @@ ng serve
 ```
 
 > Application disponible sur **http://localhost:4200**
-
----
-
-## ⚙️ Configuration — `config.js`
-
-```js
-module.exports = {
-  DB_URI    : "mongodb://localhost:27017/bahria_lumiere",
-  JWT_SECRET: "votre_secret_jwt",
-  PORT      : 3000,
-  UPLOAD_DIR: "uploads/"
-}
-```
-
 ---
 
 ## 🔐 Rôles & Accès
